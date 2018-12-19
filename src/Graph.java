@@ -7,10 +7,14 @@ import java.util.Objects;
 import java.util.Random;
 import java.util.Set;
 
-// Undirected graph
+/**
+ * Represents an undirected graph data structure with weighted nodes
+ * 
+ * @author Matt Kent
+ *
+ */
 public class Graph {
 
-	// A graph is an array of adjacency lists.
 	private final int numVerts;
 	private final List<List<Integer>> adjListArray;
 	private final Set<Edge> edges;
@@ -154,20 +158,6 @@ public class Graph {
 	public String toString() {
 		return numVerts + " vertices\n" + edges.size() + " edges\n" + "adjListArray: " + adjListArray
 				+ "\nnodesToWeights: " + nodesToWeights;
-	}
-
-	public static void main(final String args[]) {
-		// create the graph given in above figure
-		final int numVerts = 5;
-		final Graph graph = new Graph(numVerts);
-		graph.addEdge(0, 1);
-		graph.addEdge(0, 4);
-		graph.addEdge(1, 2);
-		graph.addEdge(1, 3);
-		graph.addEdge(1, 4);
-		graph.addEdge(2, 3);
-		graph.addEdge(3, 4);
-		printGraph(graph);
 	}
 
 }

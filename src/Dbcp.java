@@ -12,9 +12,10 @@ import org.apache.commons.lang3.tuple.Pair;
 import Jama.Matrix;
 
 /**
- * @author Matt Kent
+ * Contains the algorithm for solving the Doubly Balanced Connected Graph
+ * Partitioning problem
  * 
- *         Doubly Balanced Connected Graph Partitioning
+ * @author Matt Kent
  */
 public class Dbcp {
 

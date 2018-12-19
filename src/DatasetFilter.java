@@ -10,6 +10,8 @@ import java.util.stream.Stream;
 import org.apache.commons.lang3.tuple.Pair;
 
 /**
+ * Used to convert datasets to Graph objects
+ * 
  * @author Matt Kent
  */
 public class DatasetFilter {

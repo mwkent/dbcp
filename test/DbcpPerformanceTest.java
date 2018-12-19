@@ -2,6 +2,8 @@ import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
 /**
+ * Test class for performance testing of DBCP algorithm
+ * 
  * @author Matt Kent
  */
 public class DbcpPerformanceTest {

@@ -1,6 +1,8 @@
 import java.util.Random;
 
 /**
+ * Creates graph objects
+ * 
  * @author Matt Kent
  */
 public class GraphGenerator {

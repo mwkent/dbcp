@@ -9,8 +9,6 @@ import org.apache.commons.lang3.tuple.Pair;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
-import Jama.Matrix;
-
 /**
  * @author Matt Kent
  */
@@ -85,30 +83,6 @@ public class DbcpTest {
 		final Graph graph = DatasetFilter.getGraphFrom(filepath, 198);
 		System.out.println("Graph = " + graph);
 		runAndAssert(graph);
-	}
-
-	@Test
-	public void test() {
-		final double[][] lhsArray = { //
-				{ 1, 0, 0, 0, 0 }, //
-				{ 0, 1, 0, 0, 0 }, //
-				{ 0, 0, 1, 0, 0 }, //
-				{ 1.0 / 3, 1.0 / 3, 0, -1, 1.0 / 3 }, //
-				{ 1.0 / 3, 0, 1.0 / 3, 1.0 / 3, -1 } }; //
-		final double[] rhsArray = { 0, 1, 0, 0, 0 };
-		final Matrix matrix = Dbcp.findEmbedding(lhsArray, rhsArray);
-		MatrixUtil.print(matrix);
-	}
-
-	@Test
-	public void test2() {
-		System.out.println(1.0 / 3);
-		final double[][] vals = { { 1., 0, 0 }, { 0, 1, 0 }, { 0, 0, 1 } };
-		final Matrix A = new Matrix(vals);
-		final double[] rhsArray = { 1, 2, 3 };
-		final Matrix rhs = new Matrix(rhsArray, 3);
-		final Matrix x = A.solve(rhs);
-		MatrixUtil.print(x);
 	}
 
 	@Test

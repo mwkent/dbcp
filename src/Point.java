@@ -4,6 +4,8 @@ import org.apache.commons.lang3.builder.ToStringBuilder;
 import org.apache.commons.lang3.builder.ToStringStyle;
 
 /**
+ * Represents a point in the two-dimensional Reals
+ * 
  * @author Matt Kent
  */
 public class Point {

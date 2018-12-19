@@ -1,4 +1,6 @@
 /**
+ * Creates a line equation: y = mx + b from two points
+ * 
  * @author Matt Kent
  */
 public class LineEquation {
