@@ -1,15 +1,12 @@
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 
-import java.io.IOException;
-import java.nio.file.Files;
-import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-import java.util.stream.Stream;
 
 import org.apache.commons.lang3.tuple.Pair;
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
 import Jama.Matrix;
@@ -50,34 +47,44 @@ public class DbcpTest {
 
 	@Test
 	public void testOpsahlPowergrid() {
-		final String fileName = "data/opsahl-powergrid-filtered.txt";
-		try (final Stream<String> stream = Files.lines(Paths.get(fileName))) {
-			final Graph graph = new Graph(500);
-			stream.forEach(line -> graph.addEdge(Integer.valueOf(line.substring(0, line.indexOf(' '))) - 1,
-					Integer.valueOf(line.substring(line.indexOf(' ') + 1)) - 1));
-			GraphGenerator.setWeights(graph);
-			graph.make3Connected();
-			System.out.println("Graph = " + graph);
-			runAndAssert(graph);
-		} catch (final IOException e) {
-			e.printStackTrace();
-		}
+		final String filepath = "data/opsahl-powergrid-filtered.txt";
+		final Graph graph = DatasetFilter.getGraphFrom(filepath, 500);
+		System.out.println("Graph = " + graph);
+		runAndAssert(graph);
 	}
 
 	@Test
+	@Disabled
 	public void testOpsahlPowergrid4000() {
-		final String fileName = "data/opsahl-powergrid-filtered-4000.txt";
-		try (final Stream<String> stream = Files.lines(Paths.get(fileName))) {
-			final Graph graph = new Graph(4000);
-			stream.forEach(line -> graph.addEdge(Integer.valueOf(line.substring(0, line.indexOf(' '))) - 1,
-					Integer.valueOf(line.substring(line.indexOf(' ') + 1)) - 1));
-			GraphGenerator.setWeights(graph);
-			graph.make3Connected();
-			System.out.println("Graph = " + graph);
-			runAndAssert(graph);
-		} catch (final IOException e) {
-			e.printStackTrace();
-		}
+		final String filepath = "data/opsahl-powergrid-filtered-4000.txt";
+		final Graph graph = DatasetFilter.getGraphFrom(filepath, 4000);
+		System.out.println("Graph = " + graph);
+		runAndAssert(graph);
+	}
+
+	@Test
+	@Disabled
+	public void testOpsahlPowergridOriginal() {
+		final String filepath = "data/opsahl-powergrid-original.txt";
+		final Graph graph = DatasetFilter.getGraphFrom(filepath, 4941);
+		System.out.println("Graph = " + graph);
+		runAndAssert(graph);
+	}
+
+	@Test
+	public void testAirTrafficControl() {
+		final String filepath = "data/air-traffic-control.txt";
+		final Graph graph = DatasetFilter.getGraphFrom(filepath, 1226);
+		System.out.println("Graph = " + graph);
+		runAndAssert(graph);
+	}
+
+	@Test
+	public void testJazzMusicians() {
+		final String filepath = "data/jazz-musicians.txt";
+		final Graph graph = DatasetFilter.getGraphFrom(filepath, 198);
+		System.out.println("Graph = " + graph);
+		runAndAssert(graph);
 	}
 
 	@Test
@@ -107,6 +114,13 @@ public class DbcpTest {
 	@Test
 	public void testLarge3Connected() {
 		final Graph graph = GraphGenerator.get3Connected(500);
+		System.out.println("Graph = " + graph);
+		runAndAssert(graph);
+	}
+
+	@Test
+	public void testLarger3Connected() {
+		final Graph graph = GraphGenerator.get3Connected(750);
 		System.out.println("Graph = " + graph);
 		runAndAssert(graph);
 	}

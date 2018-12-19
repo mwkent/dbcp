@@ -124,11 +124,13 @@ public class Graph {
 		return nodesToWeights.get(node);
 	}
 
+	// does not guarantee the graph will be 3-connected
 	void make3Connected() {
+		final int minNumNeighbors = 3;
 		final Random random = new Random();
 		for (int vert = 0; vert < numVerts; vert++) {
 			final List<Integer> neighbors = getNeighbors(vert);
-			while (neighbors.size() < 3) {
+			while (neighbors.size() < minNumNeighbors) {
 				final int neighbor = random.nextInt(numVerts);
 				if (!neighbors.contains(neighbor)) {
 					addEdge(vert, neighbor);

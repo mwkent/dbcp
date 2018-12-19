@@ -18,7 +18,7 @@ public class GraphGenerator {
 
 	static Graph get3Connected(final int numVerts) {
 		final int k = 3;
-		final int minSize = 3;
+		final int minSize = 4;
 		if (numVerts < minSize) {
 			throw new IllegalArgumentException("numVerts must be greater than " + minSize);
 		}
