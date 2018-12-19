@@ -143,17 +143,6 @@ public class Graph {
 		}
 	}
 
-	static void printGraph(final Graph graph) {
-		for (int v = 0; v < graph.numVerts; v++) {
-			System.out.println("Adjacency list of vertex " + v);
-			System.out.print("head");
-			for (final Integer pCrawl : graph.adjListArray.get(v)) {
-				System.out.print(" -> " + pCrawl);
-			}
-			System.out.println("\n");
-		}
-	}
-
 	@Override
 	public String toString() {
 		return numVerts + " vertices\n" + edges.size() + " edges\n" + "adjListArray: " + adjListArray
